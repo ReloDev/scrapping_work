@@ -1,0 +1,10 @@
+{
+    "require": {
+        "symfony/dom-crawler": "^7.2",
+        "phpmailer/phpmailer": "^6.10"
+    },
+    "require-dev": {
+        "symfony/panther": "^2.2",
+        "dbrekelmans/bdi": "^1.4"
+    }
+}
