@@ -292,6 +292,8 @@ class JijiSNScraper {
             // Destinataires
             $mail->addAddress('ayenaaurel15@gmail.com');
             $mail->addAddress('juniornonfon@gmail.com');
+            $mail->addAddress('sejoawalan@gmail.com');
+
             
             // Sujet et corps
             $mail->Subject = 'Résultats du scraping Jiji.sn - ' . date('Y-m-d H:i:s');

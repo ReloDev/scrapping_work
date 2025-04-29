@@ -257,7 +257,8 @@ class JijiCIScraper {
             
             // Destinataires
             $mail->addAddress('ayenaaurel15@gmail.com');
-            // $mail->addAddress('juniornonfon@gmail.com');
+            $mail->addAddress('juniornonfon@gmail.com');
+            $mail->addAddress('sejoawalan@gmail.com');
             
             // Sujet et corps
             $mail->Subject = 'Résultats du scraping Jiji.ci - ' . date('Y-m-d H:i:s');
