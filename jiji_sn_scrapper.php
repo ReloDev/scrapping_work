@@ -9,11 +9,12 @@ class JijiSNScraper {
     private $pageCount = 0;
     private $numbersByPage = [];
     
+
     const BASE_URL = "https://jiji.sn";
     const USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
     const TIMEOUT = 20;
-    const DELAY = 1; // 1 seconde entre les requêtes
-    const MAX_PAGES = 1000000000000000000000;
+    const DELAY = 2; // 1 seconde entre les requêtes
+    const MAX_PAGES = 10000000000000000000000000000000000000000000000000;
     
     const EXCLUDE_PATHS = [
         "/auth", "/login", "/signup", "/user", "/logout",
@@ -30,7 +31,7 @@ class JijiSNScraper {
 
     private function makeRequest(string $url): string {
         $ch = curl_init();
-        
+
         curl_setopt_array($ch, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -304,12 +305,12 @@ class JijiSNScraper {
                 count($this->phoneNumbers),
                 $this->pageCount
             );
-            
+
             // Ajout des pièces jointes
             foreach ($files as $file) {
                 $mail->addAttachment($file);
             }
-            
+
             // Envoi
             $mail->send();
             echo "\n📤 Fichiers envoyés par email avec succès aux destinataires\n";
@@ -320,7 +321,7 @@ class JijiSNScraper {
 
     private function save_resultsFile(array $numbers): void {
         if (!file_exists('data')) mkdir('data');
-        
+
         // Fichier JSON complet
         file_put_contents(
             'data/jiji_sn_numbers.json',
